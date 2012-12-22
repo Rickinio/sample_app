@@ -1,9 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
-
-
 gem 'sqlite3'
+gem 'gravatar_image_tag'
 
 
 group :assets do
@@ -23,4 +22,5 @@ end
 
 group :test do
 	gem 'rspec'
+	gem 'factory_girl_rails'
 end
