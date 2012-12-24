@@ -143,5 +143,10 @@ div.field, div.actions{
 }
 
 
-/* Error messages */
+ul.users{
+	margin-top: 1em;
+}
 
+ul.users li{
+	list-style: none;
+}
