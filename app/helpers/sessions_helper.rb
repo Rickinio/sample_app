@@ -21,9 +21,27 @@ module SessionsHelper
 		current_user = nil
 	end
 
+	def current_user?(user)
+		user == current_user
+	end
+
 	def deny_access
-      redirect_to signin_path, :notice => "You need to Sign In first"
+	    store_location
+	    redirect_to signin_path, :notice => "You need to Sign In first"
     end
+
+    def store_location
+      session[:return_to] = request.fullpath	
+    end
+
+	def redirect_to_back_or(default)
+      redirect_to(session[:return_to] || default )
+      clear_return_to	
+    end
+
+    def clear_return_to
+    	session[:return_to] = nil
+    end    
 
 	private
 
