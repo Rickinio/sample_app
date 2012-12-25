@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
 	
   def home
+    @micropost = Micropost.new if signed_in?
   	@title = 'Home'
   end
 
@@ -12,7 +13,7 @@ class PagesController < ApplicationController
   	@title = "About Us"
   end
 
-def help
+  def help
     @title = "Help"
   end
 
