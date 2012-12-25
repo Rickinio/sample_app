@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(:page => params[:page])
   	@title = @user.name
   end
 
@@ -44,7 +45,7 @@ class UsersController < ApplicationController
         flash[:error] = "Problem with Updating the user"
         @title = 'Edit user'
         render 'edit'
-    end
+      end
   end
 
   def destroy
